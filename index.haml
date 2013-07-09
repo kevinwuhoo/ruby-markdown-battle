@@ -1,0 +1,177 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{:content => "A comparison of markdown gems.", :name => "description"}
+    %meta{:content => "Kevin Wu", :name => "author"}
+
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/bootstrap.css"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/style.css"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/github_modified.css"}
+    
+  %body
+    .row.height100
+      .col-6.height100#markdown
+        %textarea
+          \## Hello!&#13;&#10;&#13;&#10;Try out your favorite markdown gems in the browser.&#13;&#10;Click the about link for more info.&#13;&#10;&#13;&#10;<--- Write Markdown Here&#13;&#10;&#13;&#10;Get HTML Here -->
+          
+
+      .col-6.col-offset-6.height100#html-wrapper
+        #html
+
+    #render-time render time: 0ms
+
+    #footer
+      .container
+
+        .pull-right.lead#info
+          #logo Ruby Markdown Battle
+          %br
+          #links.text-center
+            %a#about About
+            \/
+            %a{:href => "http://github.com/kevinwuhoo/ruby-markdown-battle"} Github
+
+        %form#options
+          %select#processor.col-1{:name => "processor"}
+            %option{:value => "redcarpet"} RedCarpet
+            %option{:value => "rdiscount"} RDiscount
+            %option{:value => "kramdown"}  Kramdown
+            %option{:value => "maruku"}    Maruku
+
+          / processor-options class is used to hide the current table
+          %table#redcarpet.processor-options
+            %tr
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:autolink"} Autolink
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:disable_indented_code_blocks"} No Indented Code Blocks
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:fenced_code_blocks"} Fenced Code Blocks
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:highlight"} Highlight
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:lax_spacing"} Lax Spacing
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:no_intra_emphesis"} No Intra Emphesis
+            %tr
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:strikethrough"} Stikethrough
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:space_after_headers"} Space After Headers
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:superscript"} Superscript
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:tables"} Tables
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "redcarpet:underline"} Underline
+              %td
+                &nbsp;
+
+          %table#rdiscount
+            %tr
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:autolink"} Autolink
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:filter_html"} Filter HTML
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:filter_styles"} Filter Styles
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:fold_lines"} Fold Lines
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:footnotes"} Footnotes
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:generate_toc"} Generate TOC
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:no_image"} No Images
+            %tr
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:no_links"} No Links
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:no_pseudo_protocols"} No Pseudo Protocols
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:no_tables"} No Tables
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:safelink"} Safelink
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:smart"} Smart Quotes
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "rdiscount:strict"} No Superscript
+
+          %table#kramdown
+            %tr
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "kramdown:auto_ids", :checked => true} Auto IDs
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "kramdown:enable_coderay", :checked => true} CodeRay
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "kramdown:html_to_native"} HTML to Native
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "kramdown:parse_block_html"} Parse Block Html
+            %tr
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "kramdown:parse_span_html", :checked => true} Parse Span Tags
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "kramdown:remove_block_html_tags", :checked => true} Remove Block Tags
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "kramdown:remove_span_html_tags"} Remove Span Tags
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "kramdown:smart_quotes"} Smart Quotes
+
+          %table#maruku
+            %tr
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "maruku:code_show_spaces"} Code Show Spaces
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "maruku:fenced_code_blocks"} Fenced Code Blocks
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "maruku:filter_html"} Filter HTML
+            %tr
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "maruku:html_use_syntax"} HTML Use Syntax
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "maruku:ignore_wikilinks", :checked => true} Ignore Wikilinks
+              %td
+                %label.checkbox 
+                  %input{:type => "checkbox", :name => "maruku:use_numbered_headers"} Use Numbered Headers
+
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"}
+    %script{:type => "text/javascript", :src  => "/script.js"}
