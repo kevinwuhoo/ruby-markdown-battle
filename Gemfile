@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'coffee'
+gem 'coffee-script'
 gem 'json'
 
 gem 'redcarpet'
