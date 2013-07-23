@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
+gem 'execjs'
+gem 'therubyracer'
+
 gem 'sinatra'
 gem 'haml'
 gem 'coffee-script'
 gem 'json'
 
-gem 'redcarpet'
+gem 'redcarpet', git: "https://github.com/vmg/redcarpet.git"
 
 gem 'rdiscount'
 
