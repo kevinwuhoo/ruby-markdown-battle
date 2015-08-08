@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta content='A comparison of markdown gems.' name='description'>
+    <meta content='Kevin Wu' name='author'>
+    <link href='assets/bootstrap.css' rel='stylesheet' type='text/css'>
+    <link href='assets/style.css' rel='stylesheet' type='text/css'>
+    <link href='assets/github_modified.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class='row height100'>
+      <div class='col-6 height100' id='markdown'>
+        <textarea>## Hello!&#13;&#10;&#13;&#10;Try out your favorite markdown gems in the browser.&#13;&#10;Click the about link for more info.&#13;&#10;&#13;&#10;<--- Write Markdown Here&#13;&#10;&#13;&#10;Get HTML Here --></textarea>
+      </div>
+      <div class='col-6 col-offset-6 height100' id='html-wrapper'>
+        <div id='html'></div>
+      </div>
+    </div>
+    <div id='render-time'>render time: 0ms</div>
+    <div id='footer'>
+      <div class='container'>
+        <div class='pull-right lead' id='info'>
+          <div id='logo'>Ruby Markdown Battle</div>
+          <br>
+          <div class='text-center' id='links'>
+            <a id='about'>About</a>
+            /
+            <a href='http://github.com/kevinwuhoo/ruby-markdown-battle'>Github</a>
+          </div>
+        </div>
+        <form id='options'>
+          <select class='col-1' id='processor' name='processor'>
+            <option value='redcarpet'>RedCarpet</option>
+            <option value='rdiscount'>RDiscount</option>
+            <option value='kramdown'>Kramdown</option>
+            <option value='maruku'>Maruku</option>
+          </select>
+          <!-- processor-options class is used to hide the current table -->
+          <table class='processor-options' id='redcarpet'>
+            <tr>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:autolink' type='checkbox'>Autolink</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='redcarpet:disable_indented_code_blocks' type='checkbox'>No Indented Code Blocks</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:fenced_code_blocks' type='checkbox'>Fenced Code Blocks</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:highlight' type='checkbox'>Highlight</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:lax_spacing' type='checkbox'>Lax Spacing</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:no_intra_emphesis' type='checkbox'>No Intra Emphesis</input>
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:strikethrough' type='checkbox'>Stikethrough</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:space_after_headers' type='checkbox'>Space After Headers</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:superscript' type='checkbox'>Superscript</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:tables' type='checkbox'>Tables</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:underline' type='checkbox'>Underline</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='redcarpet:footnotes' type='checkbox'>Footnotes</input>
+                </label>
+              </td>
+            </tr>
+          </table>
+          <table id='rdiscount'>
+            <tr>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:autolink' type='checkbox'>Autolink</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:filter_html' type='checkbox'>Filter HTML</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:filter_styles' type='checkbox'>Filter Styles</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:fold_lines' type='checkbox'>Fold Lines</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:footnotes' type='checkbox'>Footnotes</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:generate_toc' type='checkbox'>Generate TOC</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:no_image' type='checkbox'>No Images</input>
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:no_links' type='checkbox'>No Links</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:no_pseudo_protocols' type='checkbox'>No Pseudo Protocols</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:no_tables' type='checkbox'>No Tables</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:safelink' type='checkbox'>Safelink</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:smart' type='checkbox'>Smart Quotes</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='rdiscount:strict' type='checkbox'>No Superscript</input>
+                </label>
+              </td>
+            </tr>
+          </table>
+          <table id='kramdown'>
+            <tr>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='kramdown:auto_ids' type='checkbox'>Auto IDs</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='kramdown:enable_coderay' type='checkbox'>CodeRay</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='kramdown:html_to_native' type='checkbox'>HTML to Native</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='kramdown:parse_block_html' type='checkbox'>Parse Block Html</input>
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='kramdown:parse_span_html' type='checkbox'>Parse Span Tags</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='kramdown:remove_block_html_tags' type='checkbox'>Remove Block Tags</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='kramdown:remove_span_html_tags' type='checkbox'>Remove Span Tags</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='kramdown:smart_quotes' type='checkbox'>Smart Quotes</input>
+                </label>
+              </td>
+            </tr>
+          </table>
+          <table id='maruku'>
+            <tr>
+              <td>
+                <label class='checkbox'>
+                  <input name='maruku:code_show_spaces' type='checkbox'>Code Show Spaces</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='maruku:fenced_code_blocks' type='checkbox'>Fenced Code Blocks</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='maruku:filter_html' type='checkbox'>Filter HTML</input>
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label class='checkbox'>
+                  <input name='maruku:html_use_syntax' type='checkbox'>HTML Use Syntax</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input checked name='maruku:ignore_wikilinks' type='checkbox'>Ignore Wikilinks</input>
+                </label>
+              </td>
+              <td>
+                <label class='checkbox'>
+                  <input name='maruku:use_numbered_headers' type='checkbox'>Use Numbered Headers</input>
+                </label>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js'></script>
+    <script src='assets/script.js' type='text/javascript'></script>
+  </body>
+</html>
