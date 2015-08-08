@@ -2,11 +2,16 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'sinatra'
+require 'sinatra/cross_origin'
+
 require 'json'
 
-set :views, Proc.new { File.join(root) }
+configure do
+    enable :cross_origin
+end
 
 post '/' do
+  cross_origin
   content_type :json
 
   # get the processor and remove from options hash

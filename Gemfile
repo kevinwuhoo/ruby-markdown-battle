@@ -1,11 +1,8 @@
 source 'https://rubygems.org'
-
-gem 'execjs'
-gem 'therubyracer'
+ruby "2.2.2"
 
 gem 'sinatra'
-gem 'haml'
-gem 'coffee-script'
+gem 'sinatra-cross_origin'
 gem 'json'
 
 gem 'redcarpet', git: "https://github.com/vmg/redcarpet.git"
