@@ -6,7 +6,7 @@ delay = (->
 )()
 
 process_markdown = ->
-  $.post("/",
+  $.post("http://rubymarkdownbattle.herokuapp.com/",
     {
       options: $("#options").serialize(),
       text: $("#markdown > textarea").val()
@@ -15,7 +15,7 @@ process_markdown = ->
       $("#html").html(data["renderHTML"])
       $("#render-time").html("render time: #{parseFloat(data["renderTime"]).toFixed(2)} ms")
     , "json")
-  
+
 
 $ ->
   # render greeting
@@ -35,12 +35,12 @@ $ ->
 
     # ensure processing on processor change
     process_markdown()
-    
+
     # hide all options for all processors
     for processor in $("#processor option")
       $("#" + processor.value).hide()
 
-    # show the right one    
+    # show the right one
     processor = $("#processor option:selected").val()
     $("#" + processor).show()
 
@@ -55,11 +55,11 @@ $ ->
 about = """
         Ruby Markdown Battle
         ====================
-        
+
         Why?
         ----
         Ruby Markdown Battle was created so that I could easily compare and contrast Ruby Markdown implementations and determine which one was the most suited for my needs. It evolved from a series of scripts into this website.
-        
+
         What?
         -----
         The four gems that are currently compared here are:
@@ -67,38 +67,38 @@ about = """
         * rdiscount: https://github.com/davidfstr/rdiscount
         * kramdown: https://github.com/gettalong/kramdown
         * maruku: https://github.com/bhollis/maruku
-        
+
         And?
         ----
         Here is a simplified list of features that I've compared and taken into account for my applications:
-        
+
         |           | LaTeX | Easily Extensible | Markdown Extra |
         |-----------|:-----:|:-----------------:|:--------------:|
         | redcarpet |       |         X         |        X       |
         | rdiscount |       |                   |        X       |
         | kramdown  |   X   |                   |        X       |
         | maruku    |   X   |                   |        X       |
-        
+
         Each implementation had something notable to mention:
         <dl>
           <dt>Redcarpet</dt>
           <dd>Maintained by Github</dd>
           <dd>Uses Sundown Processor</dd>
           <dd>Standalone SmartyPants Implementation</dd>
-        
+
           <dt>RDiscount</dt>
           <dd>Uses Discount Processor</dd>
-        
+
           <dt>Kramdown</dt>
           <dd>Built in CodeRay integration</dd>
           <dd>All PHP Markdown Extra Features</dd>
-        
+
           <dt>Maruku</dt>
           <dd>Inline Latex Math</dd>
           <dd>All PHP Markdown Extra Features</dd>  
         </dl>
-        
-        
+
+
         Contact
         -------
         I'm sure there are mistakes in my code or documentation. If you find any, please submit a [pull request]() or email me at: me@kevinformatics.com.

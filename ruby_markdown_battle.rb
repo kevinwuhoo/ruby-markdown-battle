@@ -3,14 +3,8 @@ require 'bundler/setup'
 
 require 'sinatra'
 require 'json'
-require 'coffee_script'
-require 'haml'
 
 set :views, Proc.new { File.join(root) }
-
-get '/' do
-  haml :index
-end
 
 post '/' do
   content_type :json
@@ -40,7 +34,7 @@ post '/' do
     options.each do |o|
       redcarpet_options[o] = true
     end
-        
+
     begin_time = Time.now
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, redcarpet_options)
     html = markdown.render(params[:text])
@@ -57,7 +51,7 @@ post '/' do
 
   elsif processor == "kramdown"
     require 'kramdown'
-    
+
     # options that are default on need to be explictly set false
     # http://kramdown.rubyforge.org/options.html
     # http://kramdown.rubyforge.org/rdoc/Kramdown/Options.html
@@ -84,7 +78,7 @@ post '/' do
     # http://maruku.rubyforge.org/math.xhtml
     require 'maruku/ext/math'
     MaRuKu::Globals[:html_math_engine] = 'ritex'
-    
+
     # options that are default on need to be explictly set false
     # https://github.com/bhollis/maruku/blob/master/lib/maruku/defaults.rb
     maruku_options = {}
@@ -105,8 +99,3 @@ post '/' do
   return {:renderHTML => html, :renderTime => render_time}.to_json
 
 end
-
-get '/script.js' do
-  coffee :script
-end
-
